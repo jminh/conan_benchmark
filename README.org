@@ -1,0 +1,32 @@
+
+% conan search benchmark --remote=conan-center
+Existing package recipes:
+
+benchmark/1.5.0
+benchmark/1.5.1
+
+% conan search benchmark
+Existing package recipes:
+
+benchmark/1.5.0
+
+% cat conanfile.txt
+[requires]
+benchmark/1.5.0
+
+[generators]
+cmake
+
+
+.conan/profiles/default
+
+pip install conan==1.28.0
+
+GCC compiler >= 5.1
+conan profile new default --detect
+conan profile update settings.compiler.libcxx=libstdc++11 default
+
+https://stackoverflow.com/questions/45524995/can-i-retrieve-the-source-code-of-the-library-packaged-with-conan-package-manage
+https://docs.conan.io/en/latest/using_packages/debugging.html
+
+
